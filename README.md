@@ -33,7 +33,7 @@ npm start
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Node.Js](https://nodejs.org/es/) - El framework web usado
-* [SqlServer] (https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Administrador de base de datos
+* [SqlServer](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Administrador de base de datos
 
 
 ## Contribuyendo 🖇️
@@ -48,7 +48,7 @@ Antes de realizar los cambios, compruebe si ya existe un problema para el cambio
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Patricio Escudero** - *Backend y base de datos* - [DevParra21](https://github.com/DevParra21)
-* **Fulanito Detal** - *Documentación y frontend* - [Danko1704](https://github.com/Danko1704)
+* **Orlando Gámez** - *Documentación y frontend* - [Danko1704](https://github.com/Danko1704)
 
 ## Licencia 📄
 
