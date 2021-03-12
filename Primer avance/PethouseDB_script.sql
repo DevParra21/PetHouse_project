@@ -115,7 +115,7 @@ CREATE TABLE Cliente(
 	CliApellidoPaterno VARCHAR(25) NOT NULL,
 	CliApellidoMaterno VARCHAR(25),
 	CliFechaNacimiento DATE,
-	CliCorreoElectronico VARCHAR(50) NOT NULL UNIQUE,
+	CliCorreoElectronico VARCHAR(100) NOT NULL UNIQUE,
 	CliContrasena VARCHAR(100) NOT NULL,
 	CliNumeroTelefonico VARCHAR(10) NULL,
 	CliNumeroCelular VARCHAR(10) NOT NULL,
