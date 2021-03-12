@@ -1,108 +1,64 @@
 # PetHouse_project
 
 
-# Título del Proyecto
+# PetHouse
 
-Proyecto para el desarrollo de Web APP usando React.
+Proyecto web desarrollado como pagina web enfocada en la renta de hogares temporales para mascotas
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+-Descargar el proyecto
+-Descargar node.js ya que sera la aplicacion que nos permitira correrlo en nuestra web
+-Abrir algun compilador de textos
+-En la consola de nuestro compilador (puede ser powershell o gitbash) escribir node --version para saber que node.js fue instalado correctamente
+-abrir un cmd con la ubicación dentro de la carpeta "my-app" y corre el comando "npm install" para instalar todas las dependencias de node y de react
+-para probarlo escribir npm start
 
 Mira **Instalación** para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-```
-Da un ejemplo
-```
+se necesita principalmente node.js
+un compilador de textos, el que el usuario desee
 
 ### Instalación 🔧
 
-_Una vez clones el repositorio, dentro de tu Visual Code entra a la consola y corre el siguiente script para instalar todas las dependendencias necesarias de nodejs._
-
-
-
+Una vez clones el repositorio, dentro de tu Visual Code entra a la consola y corre el siguiente script para instalar todas las dependendencias necesarias de nodejs
 ```
 npm install
 ```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
+npm start
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+* [Node.Js](https://nodejs.org/es/) - El framework web usado
+* [SqlServer] (https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Administrador de base de datos
+
 
 ## Contribuyendo 🖇️
 
 Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
+Navegar por una nueva base de código puede ser un desafío, por lo que lo estamos facilitando un poco. Mientras utiliza docs.github.com, es posible que se encuentre con un artículo que desee actualizar. Puede hacer clic en el botón hacer una contribución directamente en ese artículo, que lo llevará al archivo en este repositorio donde realizará los cambios.
 
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
+Antes de realizar los cambios, compruebe si ya existe un problema para el cambio que desea realizar.
 
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+* **Patricio Escudero** - *Backend y base de datos* - [DevParra21](https://github.com/DevParra21)
+* **Fulanito Detal** - *Documentación y frontend* - [Danko1704](https://github.com/Danko1704)
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está bajo la Licencia (PetHouse) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
 ## Expresiones de Gratitud 🎁
 
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
+* A el profesor por todo el apoyo mostrado en clase aunque sea sabado sus clases y atencion son excelentes
 
 
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+⌨️ con ❤️ por [Danko1704](https://github.com/Danko1704) 😊 y [DevParra21](https://github.com/DevParra21) ❤️
