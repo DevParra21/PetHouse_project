@@ -8,19 +8,19 @@
 
 /*	Query #1
 	Descripción: Creación de Base de Datos [PethouseDB].*/
-CREATE DATABASE PetHouseDB;
+CREATE DATABASE PetHouseDB
 GO
 
 /*	Query #2
 	Descripción: Uso de Base de Datos [PethouseDB] para correr script sobre ella.*/
-USE PetHouseDB;
-GO;
+USE PetHouseDB
+GO
 
 /*	Query #3
 	Descripción: Creación de Tablas [Pais].
 	Catálogo de Países.*/
 CREATE TABLE Pais(
-	PaiId NUMERIC(3,0) NOT NULL,
+	PaiId TINYINT NOT NULL,
 	PaiNombre VARCHAR(50) NOT NULL,
 	PRIMARY KEY(PaiId)
 );
@@ -34,8 +34,8 @@ GO
 	Descripción: Creación de Tablas [Estado].
 	Catálogo de Estados.*/
 CREATE TABLE Estado(
-	EstId NUMERIC(2,0) NOT NULL,
-	EstPais NUMERIC(3,0) NOT NULL,
+	EstPais TINYINT NOT NULL,
+	EstId INT NOT NULL,
 	EstNombre VARCHAR(50) NOT NULL
 	PRIMARY KEY(EstId),
 	CONSTRAINT FK_Estado_Pais FOREIGN KEY (EstPais) REFERENCES Pais(PaiId)
@@ -82,9 +82,9 @@ GO
 	Descripción: Creación de Tablas [Ciudad].
 	Catálogo de Ciudades.*/
 CREATE TABLE Ciudad(
-	CiuPais NUMERIC(3,0) NOT NULL,
-	CiuEstado NUMERIC(2,0) NOT NULL,
-	CiuId NUMERIC(3,0) NOT NULL,
+	CiuPais TINYINT NOT NULL,
+	CiuEstado INT NOT NULL,
+	CiuId INT NOT NULL,
 	CiuNombre VARCHAR(100) NOT NULL,
 	PRIMARY KEY(CiuId),
 	CONSTRAINT FK_Ciudad_Pais FOREIGN KEY(CiuPais) REFERENCES Pais(PaiId),
@@ -191,6 +191,13 @@ CREATE TABLE Hogar(
 	HogId INT NOT NULL IDENTITY(1,1),
 	HogCliente INT NOT NULL,
 	HogDescripcion VARCHAR(500) NOT NULL,
+	HogCalle VARCHAR(100) NOT NULL,
+	HogNumeroExterior VARCHAR(10) NOT NULL,
+	HogNumeroInterior VARCHAR(10) NULL,
+	HogCodigoPostal INT NOT NULL,
+	HogPais TINYINT NOT NULL,
+	HogEstado INT NOT NULL,
+	HogCiudad INT NOT NULL,
 	HogCostoPorNoche NUMERIC(12,2) NOT NULL,
 	HogCapacidad TINYINT NOT NULL,
 	HogCuentaConMascotas BIT NOT NULL,
@@ -200,8 +207,13 @@ CREATE TABLE Hogar(
 	HogFechaAlta DATETIME NOT NULL DEFAULT GETDATE(),
 	HogFechaUltimaActualizacion DATETIME NULL,
 	PRIMARY KEY(HogId),
-	CONSTRAINT FK_Hogar_Cliente FOREIGN KEY(HogCliente) REFERENCES Cliente(CliId)
+	CONSTRAINT FK_Hogar_Cliente FOREIGN KEY(HogCliente) REFERENCES Cliente(CliId),
+	CONSTRAINT FK_Hogar_Pais FOREIGN KEY(HogPais) REFERENCES Pais(PaiId),
+	CONSTRAINT FK_Hogar_Estado FOREIGN KEY(HogEstado) REFERENCES Estado(EstId),
+	CONSTRAINT FK_Hogar_Ciudad FOREIGN KEY(HogCiudad) REFERENCES Ciudad(CiuId)
 )
+
+
 
 /*	Query #16
 	Descripción: Creación de Tablas [HogarMultimedia].
@@ -220,12 +232,14 @@ CREATE TABLE HogarMultimedia(
 	Descripción: Creación de Tablas [HogarTipoMascota].
 	Guardará información adicional del tipo de mascota que aceptan en ese hogar. Puede tener más de un tipo de mascota relacionado.*/
 CREATE TABLE HogarTipoMascota(
-	HmaHogar INT NOT NULL,
-	HmaTipoMascota TINYINT NOT NULL,
-	PRIMARY KEY(HmaHogar),
-	CONSTRAINT FK_HogarTipoMascota_TipoMascota FOREIGN KEY(HmaTipoMascota) REFERENCES TipoMascota(TmaId)
+	HtmHogar INT NOT NULL,
+	HtmTipoMascota TINYINT NOT NULL,
+	PRIMARY KEY(HtmHogar, HtmTipoMascota),
+	CONSTRAINT FK_HogarTipoMascota_Hogar FOREIGN KEY(HtmHogar) REFERENCES Hogar(HogId),
+	CONSTRAINT FK_HogarTipoMascota_TipoMascota FOREIGN KEY(HtmTipoMascota) REFERENCES TipoMascota(TmaId)
 );
 GO
+
 
 /*	Query #18
 	Descripción: Creación de Tablas [EstatusReservacion].
@@ -266,6 +280,8 @@ CREATE TABLE Reservacion(
 	CONSTRAINT FK_Reservacion_Hogar FOREIGN KEY(ResHogar) REFERENCES Hogar(HogId),
 	CONSTRAINT FK_Reservacion_Estatus FOREIGN KEY(ResEstatus) REFERENCES EstatusReservacion(EreId)
 );
+
+
 
 /*	Query #21
 	Descripción: Creación de Tablas [EtapaReservacion].
