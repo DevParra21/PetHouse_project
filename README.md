@@ -5,6 +5,12 @@
 
 Proyecto web desarrollado como pagina web enfocada en la renta de hogares temporales para mascotas
 
+# Carpetas
+
+-SQL: aqui se encuentra el query o script para la creacion de la base de datos
+-my-app: carpeta que contiene todo lo relacionado para el flujo de construccion del frontend
+-Backend: en este carpeta se encuentra todo lo relacionado para el funcionamiento del backend (controladores, modelos, objetos)
+
 ## Comenzando 🚀
 
 -Descargar el proyecto
@@ -14,6 +20,8 @@ Proyecto web desarrollado como pagina web enfocada en la renta de hogares tempor
 -abrir un cmd con la ubicación dentro de la carpeta "my-app" y corre el comando "npm install" para instalar todas las dependencias de node y de react
 -para probarlo escribir npm start
 -En sql server se ejecuta el script de la creacion de la base de datos
+-Compilar el proyecto de visual studio
+-Mientras se esta ejecutando el proyecto, abrir el postman y ejecutar alguna api del documento del diseño tecnico de la aplicación
 
 Mira **Instalación** para conocer como desplegar el proyecto.
 
@@ -24,6 +32,7 @@ se necesita principalmente node.js
 un compilador de textos, el que el usuario desee
 un administrador de base de datos, en este caso se hace uso de sql server management studio 2018
 un administrador y creador de apis como lo puede ser web (swagger) o aplicacion de escritorio (postman)
+en dado caso que la aplicacion de visual studio tenga errores con algun plug in de los nugets, actualizarlos desde el administrador de paquetes de solucion
 
 ### Instalación 🔧
 
@@ -34,6 +43,8 @@ Una vez clones el repositorio, dentro de tu Visual Code entra a la consola y cor
 npm install
 ```
 npm start
+...
+compilar el proyecto de visual studio
 ...
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
