@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Backend.Models
 {
-    public class EstatusReservacion
+    public class TipoMultimedia
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Nombre { get; set; }
-
-        //public virtual ICollection<Reservacion> Reservacion { get; set; }
     }
 }

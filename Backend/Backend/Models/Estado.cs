@@ -7,10 +7,10 @@ namespace Backend.Models
 {
     public class Estado
     {
-        public int EstPais { get; set; }
-        public int EstId { get; set; }
-        public string EstNombre { get; set; }
-
+        public int ID { get; set; }
+        public string Nombre { get; set; }
+        public int PaisId { get; set; }
         public virtual Pais Pais { get; set; }
+
     }
 }

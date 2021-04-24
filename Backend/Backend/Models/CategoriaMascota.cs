@@ -7,7 +7,7 @@ namespace Backend.Models
 {
     public class CategoriaMascota
     {
-        public int CmaId { get; set; }
-        public string CmaNombre { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
     }
 }

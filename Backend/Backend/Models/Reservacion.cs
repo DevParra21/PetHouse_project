@@ -7,26 +7,24 @@ namespace Backend.Models
 {
     public class Reservacion
     {
-        public string ResId { get; set; }
-        public int ResCliente { get; set; }
-        public int ResHogar { get; set; }
-        public int ResMascota { get; set; }
-        public int ResEstatus { get; set; }
-        public DateTime ResFechaEntrada { get; set; }
-        public DateTime ResFechaSalida { get; set; }
-        public double ResMontoTotal { get; set; }
-        public bool ResRecibeAlimento { get; set; }
-        public string ResDescripcionAlimento { get; set; }
-        public  string ResComentariosCliente { get; set; }
-        public DateTime ResFechaAlta { get; set; }
-
-
-
+        public int Id { get; set; }
+        public int ClienteId { get; set; }
+        public int HogarId { get; set; }
+        public int EstatusReservacionId { get; set; }
+        public DateTime FechaEntrada { get; set; }
+        public DateTime FechaSalida { get; set; }
+        public double MontoTotal { get; set; }
+        public bool RecibeAlimento { get; set; }
+        #nullable enable
+        public string? DescripcionAlimento { get; set; }
+        public  string? ComentariosCliente { get; set; }
+        public DateTime? FechaAlta { get; set; }
+        #nullable disable
         public virtual Cliente Cliente { get; set; }
         public virtual Hogar Hogar { get; set; }
-        public virtual Mascota Mascota { get; set; }
         public virtual EstatusReservacion EstatusReservacion { get; set; }
 
-        public virtual ICollection<HistorialReservacion> HistorialReservacion  { get; set; }
+        //public virtual ICollection<ReservacionDetalle> ReservacionDetalles { get; set; }
+        //public virtual ICollection<HistorialReservacion> HistorialReservacion  { get; set; }
     }
 }

@@ -7,8 +7,7 @@ namespace Backend.Models
 {
     public class TipoMascota
     {
-        public int TmaId{ get; set; }
-
-        public string TmaNombre { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\EtapaReservacionController.cs" />
+    <Compile Remove="Controllers\HistorialReservacionController.cs" />
+    <Compile Remove="Controllers\HogarTipoMascotaController.cs" />
+    <Compile Remove="Models\EtapaReservacion.cs" />
+    <Compile Remove="Models\HistorialReservacion.cs" />
+    <Compile Remove="Models\HogarTipoMascota.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
