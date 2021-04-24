@@ -7,9 +7,9 @@ namespace Backend.Models
 {
     public class EstatusReservacion
     {
-        public int EreId { get; set; }
-        public string EreNombre { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
 
-        public virtual ICollection<Reservacion> Reservacion { get; set; }
+        //public virtual ICollection<Reservacion> Reservacion { get; set; }
     }
 }

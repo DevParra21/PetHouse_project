@@ -7,22 +7,23 @@ namespace Backend.Models
 {
     public class Hogar
     {
-        public int HogId { get; set; }
-        public int HogCliente { get; set; }
-        public string HogDescripcion { get; set; }
-        public double HogCostoPorNoche { get; set; }
-        public int HogCapacidad { get; set; }
-        public bool HogCuentaConMascotas { get; set; }
-        public bool HogPublicado { get; set; }
-        public bool HogDisponible { get; set; }
-        public bool HogPausado { get; set; }
-        public DateTime HogFechaAlta { get; set; }
-        public DateTime HogFechaUltimaActualizacion { get; set; }
-
+        public int Id { get; set; }
+        public int ClienteId { get; set; }
+        public string Descripcion { get; set; }
+        public double CostoPorNoche { get; set; }
+        public int Capacidad { get; set; }
+        public bool CuentaConMascotas { get; set; }
+        public bool Publicado { get; set; }
+        public bool Disponible { get; set; }
+        public bool Pausado { get; set; }
+        #nullable enable
+        public DateTime? FechaAlta { get; set; }
+        public DateTime? FechaUltimaActualizacion { get; set; }
+        #nullable disable
         public virtual Cliente Cliente { get; set; }
-        public virtual ICollection<Reservacion> Reservacion { get; set; }
-        public virtual ICollection<HogarMultimedia> HogarMultimedia { get; set; }
-        public virtual ICollection<HogarTipoMascota> HogarTipoMascota { get; set; }
+        //public virtual ICollection<Reservacion> Reservacion { get; set; }
+        //public virtual ICollection<HogarMultimedia> HogarMultimedia { get; set; }
+        //public virtual ICollection<HogarTipoMascota> HogarTipoMascota { get; set; }
 
     }
 }

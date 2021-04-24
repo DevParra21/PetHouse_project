@@ -7,30 +7,35 @@ namespace Backend.Models
 {
     public class Cliente
     {
-        public long CliId { get; set; }
-        public string CliNombre { get; set; }
-        public string CliApellidoPaterno { get; set; }
-        public string CliApellidoMaterno { get; set; }
-        public DateTime CliFechaNacimiento { get; set; }
-        public string CliCorreoElectronico { get; set; }
-        public string CliContrasena { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
+        public string ApellidoPaterno { get; set; }
+        public string ApellidoMaterno { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string CorreoElectronico { get; set; }
+        public string Contrasena { get; set; }
+        public string Calle { get; set; }
+        public string NumExt { get; set; }
         #nullable enable
-        public string? CliNumeroTelefonico { get; set; }
+        public string? NumInt { get; set; }
+#nullable disable
+        public int CiudadId { get; set; }
+
+        public virtual Ciudad Ciudad{ get; set; }
+        public int CodigoPostal { get; set; }
+        #nullable enable
+        public string? NumeroTelefonico { get; set; }
         #nullable disable
-        public string CliNumeroCelular { get; set; }
-
-        public bool CliBloqueado { get; set; }
-
-        public DateTime? CliFechaUltimoAcceso { get; set; }
-
-        public DateTime  CliFechaAlta { get; set; }
-        public DateTime? CliFechaUltimaActualizacion { get; set; }
-
-        public DateTime? CliFechaBaja { get; set; }
-        public virtual ICollection<Mascota> Mascota { get; set; }
-        public virtual ICollection<Reservacion> Reservacion { get; set; }
-        public virtual ICollection<Hogar> Hogar { get; set; }
-
-
+        public string NumeroCelular { get; set; }
+        public bool Bloqueado { get; set; }
+        public DateTime? FechaUltimoAcceso { get; set; }
+        public DateTime  FechaAlta { get; set; }
+        #nullable enable
+        public DateTime? FechaUltimaActualizacion { get; set; }
+        public DateTime? FechaBaja { get; set; }
+        #nullable disable
+        //public virtual ICollection<Mascota> Mascotas { get; set; }
+        //public virtual ICollection<Reservacion> Reservaciones { get; set; }
+        //public virtual ICollection<Hogar> Hogares { get; set; }
     }
 }

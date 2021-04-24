@@ -7,12 +7,12 @@ namespace Backend.Models
 {
     public class HogarMultimedia
     {
-        public int HmuHogar { get; set; }
-        public int HmuId { get; set; }
-        public string HmuNombre { get; set; }
-        public int HmuTipo { get; set; }
-        public string HmuExtension { get; set; }
-
+        public int HogarId { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int TipoMultimediaId { get; set; }
+        public string Extension { get; set; }
         public virtual Hogar Hogar { get; set; }
+        public virtual TipoMultimedia TipoMultimedia { get; set; }
     }
 }

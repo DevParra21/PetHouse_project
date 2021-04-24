@@ -7,7 +7,10 @@ namespace Backend.Models
 {
     public class Pais
     {
-        public int PaiId { get; set; }
-        public string PaiNombre { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
+
+        //public virtual ICollection<Estado> Estados { get; set; }
+
     }
 }
