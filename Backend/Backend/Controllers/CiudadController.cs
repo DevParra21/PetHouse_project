@@ -1,47 +1,91 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Backend.Classes.Core;
+using Backend.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Backend.Controllers
 {
-    [Route("api/ciudad")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CiudadController : ControllerBase
     {
+        private PetHouseDBContext dbContext;
+
+        public CiudadController(PetHouseDBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         // GET: api/<CiudadController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetAll()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                CiudadCore ciudadCore = new CiudadCore(dbContext);
+                List<Ciudad> ciudades = ciudadCore.GetAll();
+
+                if (!Funciones.Validadores.validaLista(ciudades))
+                    return NotFound(Funciones.Constantes.GENERAL_NOT_FOUND);
+
+                return Ok(ciudades);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         // GET api/<CiudadController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                if (!Funciones.Validadores.validaId(id))
+                    return BadRequest(Funciones.Constantes.BAD_REQUEST);
+
+                CiudadCore ciudadCore = new CiudadCore(dbContext);
+               IQueryable<Ciudad> ciudad = ciudadCore.Get(id);
+                if (ciudad.ToList().Count==0)
+                    return NotFound(Funciones.Constantes.NOT_FOUND);
+
+                return Ok(ciudad);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
-        //// POST api/<CiudadController>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        // GET api/<CiudadController>/estadoId
+        [HttpGet("{estadoId}")]
+        public IActionResult GetFromEstado(int estadoId)
+        {
+            try
+            {
+                if (!Funciones.Validadores.validaId(estadoId))
+                    return BadRequest(Funciones.Constantes.BAD_REQUEST);
 
-        //// PUT api/<CiudadController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+                CiudadCore ciudadCore = new CiudadCore(dbContext);
 
-        //// DELETE api/<CiudadController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+                List<Ciudad> ciudades = ciudadCore.GetFromEstado(estadoId);
+                if (!Funciones.Validadores.validaLista(ciudades))
+                    return NotFound(Funciones.Constantes.NOT_FOUND);
+
+                return Ok(ciudades);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
     }
 }

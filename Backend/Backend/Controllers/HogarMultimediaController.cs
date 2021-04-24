@@ -1,47 +1,86 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Backend.Classes.Core;
+using Backend.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Backend.Controllers
 {
-    [Route("api/hogarmultimedia")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class HogarMultimediaController : ControllerBase
     {
+        PetHouseDBContext dbContext;
+
+        public HogarMultimediaController(PetHouseDBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         // GET: api/<HogarMultimediaController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetAll()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                HogarMultimediaCore hMultimediaCore = new HogarMultimediaCore(dbContext);
+                return Ok(hMultimediaCore.GetAll());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
 
         // GET api/<HogarMultimediaController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{hogarId}")]
+        public IActionResult GetMediaFromHogar(int hogarId)
         {
-            return "value";
+            try
+            {
+                HogarMultimediaCore hMultimediaCore = new HogarMultimediaCore(dbContext);
+                return Ok(hMultimediaCore.GetMediaFromHogar(hogarId));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        // GET api/<HogarMultimediaController>/id
+        [HttpGet("{hogarId}, {id}")]
+        public IActionResult GetMedia(int hogarId, int id)
+        {
+            try
+            {
+                HogarMultimediaCore mediaCore = new HogarMultimediaCore(dbContext);
+                return Ok(mediaCore.GetMedia(hogarId, id));
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+            
         }
 
         // POST api/<HogarMultimediaController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Create([FromBody] HogarMultimedia hogarMultimedia)
         {
-        }
-
-        // PUT api/<HogarMultimediaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<HogarMultimediaController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            try
+            {
+                HogarMultimediaCore hMediaCore = new HogarMultimediaCore(dbContext);
+                hMediaCore.Create(hogarMultimedia);
+                return Ok("Multimedia cargada correctamente");
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Backend.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +9,31 @@ using System.Threading.Tasks;
 
 namespace Backend.Controllers
 {
-    [Route("api/pais")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PaisController : ControllerBase
     {
+        private PetHouseDBContext dbContext; 
+
+        public PaisController(PetHouseDBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         // GET: api/<PaisController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Pais> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            List<Pais> paises = dbContext.Pais.ToList();
+
+            return paises;
         }
 
-        // GET api/<PaisController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<PaisController>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         //// POST api/<PaisController>
         //[HttpPost]
