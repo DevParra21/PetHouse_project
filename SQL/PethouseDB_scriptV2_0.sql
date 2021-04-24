@@ -12,101 +12,12 @@
  *
  *  Descripción: DROP y CREATE de nuevo diseño de Base de Datos. Creación de Base de Datos [PethouseDB].
  */
-USE [PetHouseDB]
-GO
-ALTER TABLE [dbo].[ReservacionDetalle] DROP CONSTRAINT [FK_RDetalle_Reservacion]
-GO
-ALTER TABLE [dbo].[ReservacionDetalle] DROP CONSTRAINT [FK_RDetalle_Mascota]
-GO
-ALTER TABLE [dbo].[Reservacion] DROP CONSTRAINT [FK_Reservacion_Hogar]
-GO
-ALTER TABLE [dbo].[Reservacion] DROP CONSTRAINT [FK_Reservacion_Estatus]
-GO
-ALTER TABLE [dbo].[Reservacion] DROP CONSTRAINT [FK_Reservacion_Cliente]
-GO
-ALTER TABLE [dbo].[Mascota] DROP CONSTRAINT [FK_Mascota_Tipo]
-GO
-ALTER TABLE [dbo].[Mascota] DROP CONSTRAINT [FK_Mascota_Cliente]
-GO
-ALTER TABLE [dbo].[Mascota] DROP CONSTRAINT [FK_Mascota_Categoria]
-GO
-ALTER TABLE [dbo].[HogarMultimedia] DROP CONSTRAINT [FK_Tipo_Multimedia]
-GO
-ALTER TABLE [dbo].[HogarMultimedia] DROP CONSTRAINT [FK_Hogar_Multimedia]
-GO
-ALTER TABLE [dbo].[Hogar] DROP CONSTRAINT [FK_Hogar_Cliente]
-GO
-ALTER TABLE [dbo].[Estado] DROP CONSTRAINT [FK_Estado_Pais]
-GO
-ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [FK_Cliente_Ciudad]
-GO
-ALTER TABLE [dbo].[Ciudad] DROP CONSTRAINT [FK_Ciudad_Estado]
-GO
-ALTER TABLE [dbo].[Reservacion] DROP CONSTRAINT [DF__Reservaci__Fecha__7B5B524B]
-GO
-ALTER TABLE [dbo].[Reservacion] DROP CONSTRAINT [DF__Reservaci__Estat__7A672E12]
-GO
-ALTER TABLE [dbo].[Mascota] DROP CONSTRAINT [DF__Mascota__FechaAl__47DBAE45]
-GO
-ALTER TABLE [dbo].[Hogar] DROP CONSTRAINT [DF__Hogar__FechaAlta__5070F446]
-GO
-ALTER TABLE [dbo].[Hogar] DROP CONSTRAINT [DF__Hogar__Pausado__4F7CD00D]
-GO
-ALTER TABLE [dbo].[Hogar] DROP CONSTRAINT [DF__Hogar__Disponibl__4E88ABD4]
-GO
-ALTER TABLE [dbo].[Hogar] DROP CONSTRAINT [DF__Hogar__Publicado__4D94879B]
-GO
-ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [DF__Cliente__FechaAl__403A8C7D]
-GO
-ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [DF__Cliente__Bloquea__3F466844]
-GO
-ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [UQ__Cliente__531402F387C32DB5]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoMultimedia]') AND type in (N'U'))
-DROP TABLE [dbo].[TipoMultimedia]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoMascota]') AND type in (N'U'))
-DROP TABLE [dbo].[TipoMascota]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ReservacionDetalle]') AND type in (N'U'))
-DROP TABLE [dbo].[ReservacionDetalle]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Reservacion]') AND type in (N'U'))
-DROP TABLE [dbo].[Reservacion]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Pais]') AND type in (N'U'))
-DROP TABLE [dbo].[Pais]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Mascota]') AND type in (N'U'))
-DROP TABLE [dbo].[Mascota]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HogarMultimedia]') AND type in (N'U'))
-DROP TABLE [dbo].[HogarMultimedia]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Hogar]') AND type in (N'U'))
-DROP TABLE [dbo].[Hogar]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[EstatusReservacion]') AND type in (N'U'))
-DROP TABLE [dbo].[EstatusReservacion]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Estado]') AND type in (N'U'))
-DROP TABLE [dbo].[Estado]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Cliente]') AND type in (N'U'))
-DROP TABLE [dbo].[Cliente]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ciudad]') AND type in (N'U'))
-DROP TABLE [dbo].[Ciudad]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CategoriaMascota]') AND type in (N'U'))
-DROP TABLE [dbo].[CategoriaMascota]
-GO
-USE [master]
-GO
 DROP DATABASE [PetHouseDB]
 GO
 CREATE DATABASE [PetHouseDB]
  CONTAINMENT = NONE
+GO
+USE [PetHouseDB]
 GO
 ALTER DATABASE [PetHouseDB] SET COMPATIBILITY_LEVEL = 150
 GO
