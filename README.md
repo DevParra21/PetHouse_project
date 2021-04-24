@@ -20,6 +20,7 @@ Proyecto web desarrollado como pagina web enfocada en la renta de hogares tempor
 -abrir un cmd con la ubicación dentro de la carpeta "my-app" y corre el comando "npm install" para instalar todas las dependencias de node y de react
 -para probarlo escribir npm start
 -En sql server se ejecuta el script de la creacion de la base de datos
+-Dentro del proyecto de visual studio, abrir appsetting.json y cambiar la informacion de server por la del usuario actual
 -Compilar el proyecto de visual studio
 -Mientras se esta ejecutando el proyecto, abrir el postman y ejecutar alguna api del documento del diseño tecnico de la aplicación
 
@@ -43,6 +44,8 @@ Una vez clones el repositorio, dentro de tu Visual Code entra a la consola y cor
 npm install
 ```
 npm start
+...
+en appsetting.json cambiar la informacion de server por la del usuario actual
 ...
 compilar el proyecto de visual studio
 ...
