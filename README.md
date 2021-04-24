@@ -13,6 +13,7 @@ Proyecto web desarrollado como pagina web enfocada en la renta de hogares tempor
 -En la consola de nuestro compilador (puede ser powershell o gitbash) escribir node --version para saber que node.js fue instalado correctamente
 -abrir un cmd con la ubicación dentro de la carpeta "my-app" y corre el comando "npm install" para instalar todas las dependencias de node y de react
 -para probarlo escribir npm start
+-En sql server se ejecuta el script de la creacion de la base de datos
 
 Mira **Instalación** para conocer como desplegar el proyecto.
 
@@ -21,19 +22,26 @@ Mira **Instalación** para conocer como desplegar el proyecto.
 
 se necesita principalmente node.js
 un compilador de textos, el que el usuario desee
+un administrador de base de datos, en este caso se hace uso de sql server management studio 2018
+un administrador y creador de apis como lo puede ser web (swagger) o aplicacion de escritorio (postman)
 
 ### Instalación 🔧
+
+Para poder crear las base de datos, hay que ejecutar el query de creacion de base de datos en sql server management studio
 
 Una vez clones el repositorio, dentro de tu Visual Code entra a la consola y corre el siguiente script para instalar todas las dependendencias necesarias de nodejs
 ```
 npm install
 ```
 npm start
+...
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Node.Js](https://nodejs.org/es/) - El framework web usado
 * [SqlServer](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Administrador de base de datos
+* [PostMan](https://www.postman.com) - Para enviar peticiones de APIS
+* [PostManAgent](https://www.postman.com/downloads/) - Agente para hacer las llamadas de APIS
 
 
 ## Contribuyendo 🖇️
