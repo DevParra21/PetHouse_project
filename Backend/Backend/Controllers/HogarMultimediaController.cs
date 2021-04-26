@@ -42,8 +42,17 @@ namespace Backend.Controllers
         {
             try
             {
+                if (!Funciones.Validadores.validaId(hogarId))
+                    return BadRequest(Funciones.Constantes.BAD_REQUEST);
+
                 HogarMultimediaCore hMultimediaCore = new HogarMultimediaCore(dbContext);
-                return Ok(hMultimediaCore.GetMediaFromHogar(hogarId));
+                List<HogarMultimedia> hMulti = hMultimediaCore.GetMediaFromHogar(hogarId);
+                if (!Funciones.Validadores.validaLista(hMulti))
+                    return NotFound(Funciones.Constantes.NOT_FOUND);
+
+                return Ok(hMulti);
+
+                
             }
             catch(Exception ex)
             {
