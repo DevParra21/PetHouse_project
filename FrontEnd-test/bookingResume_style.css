@@ -1,0 +1,425 @@
+/* ESSENTIAL CSS */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #484848;
+  overflow-x: hidden;
+}
+
+p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  font-size: 16px;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:visited {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+::selection {
+  color: #fff;
+  background-color: #ccc;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: #ccc;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  position: relative;
+  max-width: 970px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 1000px) {
+  .row {
+    padding: 0 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+}
+
+/* TOP-NAV CSS */
+
+.top-nav {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 200;
+}
+
+.top-nav.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo:link {
+  position: relative;
+  color: #ccc;
+  display: inline-block;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  float: left;
+}
+
+.logo:visited {
+  color: #ccc;
+}
+
+.logo img {
+  position: relative;
+  padding: 12px 19px;
+  width: 100px;
+  vertical-align: middle;
+}
+
+.top-nav.active .logo img {
+  border-right: 1px solid #eee;
+}
+
+.top-nav ul {
+  float: right;
+  padding: 16px 0;
+}
+
+.top-nav ul li {
+  display: inline-block;
+  margin: 0 25px;
+}
+
+.top-nav ul li a:link {
+  color: #484848;
+  font-size: 14px;
+}
+
+.top-nav ul li a:visited {
+  color: #484848;
+}
+
+@media all and (max-width: 750px) {
+  .top-nav ul li {
+    margin: 0 15px;
+  }
+  .top-nav ul li:last-of-type {
+    margin-right: 25px;
+  }
+}
+
+@media all and (max-width: 630px) {
+  .top-nav ul li {
+    margin: 0 7.5px;
+  }
+  .top-nav ul li:last-of-type {
+    margin-right: 25px;
+  }
+}
+
+@media all and (max-width: 535px) {
+  .top-nav ul li {
+    display: block;
+    margin: 7.5px;
+    margin-right: 25px;
+    text-align: right;
+  }
+  .top-nav ul li:first-of-type {
+    margin-top: 0;
+  }
+  .top-nav ul li:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/* CHECK IN */
+
+/* BANNER */
+
+img {
+  max-width: 100%;
+}
+
+.image-left {
+  margin: 0 auto;
+  border: 3px solid;
+  width: 800px;
+  height: 250px;
+}
+
+.image-left-text {
+  margin: 0 auto;
+}
+
+@media (min-width: 20em) {
+  .image-left {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  .image-left img {
+    margin-right: 1em;
+    float: left; /* fallback */
+    max-width: 100%;
+    height: 200px;
+  }
+
+  /* clearfix for fallback */
+  .image-left::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@media (min-width: 30em) {
+  .image-left img {
+    flex-shrink: 0;
+  }
+}
+
+/* PAYMENT */
+
+div.elem-group {
+  margin: 20px 0;
+}
+
+div.elem-group.inlined {
+  width: 49%;
+  display: inline-block;
+  float: left;
+  margin-left: 1%;
+}
+
+label {
+  display: block;
+  font-family: "Nanum Gothic";
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input,
+select,
+textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: "Nanum Gothic";
+  width: 100%;
+  padding: 10px;
+}
+
+div.elem-group.inlined input {
+  width: 95%;
+  display: inline-block;
+}
+
+textarea {
+  height: 250px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+button {
+  height: 50px;
+  background: orange;
+  border: none;
+  color: white;
+  font-size: 1.25em;
+  font-family: "Nanum Gothic";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid black;
+}
+
+.payButton {
+  text-align: right;
+}
+
+/* FOOTER CSS */
+
+#footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  border-top: 1px solid #dbdbdb;
+  margin-top: 60px;
+  padding: 60px 0;
+}
+
+#footer-first-wrapper {
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 60px;
+}
+
+#settings-holder {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: auto;
+  float: left;
+}
+
+.setting {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.external-links-holder {
+  display: inline-block;
+  width: 16.66664%;
+  height: auto;
+  float: right;
+  margin-left: 8.33332%;
+}
+
+.external-links-holder ul {
+  padding: 0 8px;
+  letter-spacing: 1px;
+}
+
+.external-links-holder ul li span.external-link-title {
+  display: block;
+  color: #484848;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.external-links-holder ul li a:link {
+  display: inline-block;
+  color: #767676;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.external-links-holder ul li a:visited {
+  color: #767676;
+}
+
+.external-links-holder ul li a:hover {
+  text-decoration: underline;
+}
+
+.external-links-holder ul li a:active {
+  color: #008489;
+}
+
+#copyright-footer {
+  margin-top: 20px;
+}
+
+#left-copyright-footer {
+  float: left;
+}
+
+#left-copyright-footer svg {
+  float: left;
+}
+
+#left-copyright-footer span {
+  margin-left: 10px;
+  vertical-align: middle;
+  color: #767676;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+#right-copyright-footer {
+  float: right;
+}
+
+#right-copyright-footer ul {
+  float: left;
+}
+
+#right-copyright-footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#right-copyright-footer ul li:last-of-type {
+  margin-right: 0;
+}
+
+#right-copyright-footer ul li a:link {
+  color: #767676;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#right-copyright-footer ul li a:visited {
+  color: #767676;
+}
+
+#right-copyright-footer ul li a:hover {
+  text-decoration: underline;
+}
+
+#right-copyright-footer ul li a:active {
+  color: #008489;
+}
+
+#right-copyright-footer svg {
+  float: right;
+  margin-left: 10px;
+}
