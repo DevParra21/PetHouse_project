@@ -7,8 +7,8 @@ const Searchbar = () => {
         <div className="column is-full">
             
       <div className="field has-addons">
-        <p class="control">
-            <span class="select">
+        <p className="control">
+            <span className="select">
                 <select>
                     <option>Nombre</option>
                     <option>Ciudad</option>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { MenuItems } from  './MenuItems';
 import { Button } from '../Button';
 import './Navbar.css';
@@ -28,7 +29,7 @@ class Navbar extends Component {
                         );
                     })}
                 </ul>
-                <Button>Regístrate</Button>
+                <Button><Link to="/signup" className="link">Regístrate</Link></Button>
             </nav>
         )
     }
