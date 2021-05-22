@@ -1,0 +1,17 @@
+.title{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.description{
+    text-align: justify;
+}
+
+.money{
+    font-size: x-large;
+    margin:1rem;
+}
+
+.float-right{
+    margin-bottom: 2rem;
+}
