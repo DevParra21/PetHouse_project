@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Card.css';
 
 const Card = ({hogar}) => {
@@ -28,7 +29,7 @@ const Card = ({hogar}) => {
                         <small>no. de mascotas: {hogar.mascotas}</small> |
                         <small> $ {hogar.precio} MXN </small>
                     </div>
-                        <button className="button is-link"><i className="fas fa-ellipsis-h"></i></button>
+                        <button className="button is-link"><Link to="/details"><i className="fas fa-ellipsis-h"></i></Link></button>
                 </div>
             </div>
         </div>
