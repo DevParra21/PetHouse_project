@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Backend.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,42 @@ namespace Backend.Classes.Core
         }
 
         //GET Obtiene todas los hogares registrados.
-        public List<Hogar> GetAll()
+        public List<HogarViewModel> GetAll()
         {
             try
             {
-                List<Hogar> hogares = dbContext.Hogar
-                    .Include(x => x.Cliente)
-                    .ToList();
-                return hogares;
+
+                var query = (from hogar in dbContext.Hogar
+                             join cliente in dbContext.Cliente on hogar.ClienteId equals cliente.ID
+                             select new
+                             {
+                                 id = hogar.Id,
+                                 descripcion = hogar.Descripcion,
+                                 costo = hogar.CostoPorNoche,
+                                 idCliente = cliente.ID,
+                                 cliente = $"{cliente.Nombre} {cliente.ApellidoPaterno} {cliente.ApellidoMaterno}",
+                                   avenida = cliente.Calle,
+                                 capacidad = hogar.Capacidad
+                             }).ToList();
+
+                //restructura
+                List<HogarViewModel> resultado = new List<HogarViewModel>();
+                foreach (var hogar in query.ToList())
+                {
+                    HogarViewModel elemento = new HogarViewModel()
+                    {
+                        id = hogar.id,
+                        descripcion = hogar.descripcion,
+                        costoPorNoche = hogar.costo,
+                        capacidad = hogar.capacidad,
+                        nombreDueno = hogar.cliente,
+                        idDueno = hogar.idCliente
+                    };
+
+                    resultado.Add(elemento);
+                }
+            
+                return resultado;
             }
             catch(Exception ex)
             {

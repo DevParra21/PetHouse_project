@@ -39,7 +39,7 @@ namespace Backend.Classes.Core
                 IQueryable<Ciudad> ciudad = dbContext.Ciudad
                     .Include(x => x.Estado)
                     .Include(x => x.Estado.Pais)
-                    .Where(x => x.ID == id);
+                    .Where(x => x.Id == id);
                 return ciudad;
             }
             catch(Exception ex)

@@ -1,5 +1,7 @@
 ﻿using Backend.Classes.Core;
 using Backend.Models;
+using Backend.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,13 +25,14 @@ namespace Backend.Controllers
         }
 
         //GET: api/<HogarController> - consulta todos los hogares de la base de datos.
+        //[Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
             try
             {
                 HogarCore hogarCore = new HogarCore(dbContext);
-                List<Hogar> hogares = hogarCore.GetAll();
+                List<HogarViewModel> hogares = hogarCore.GetAll();
 
                 if(!Funciones.Validadores.validaLista(hogares))
                     return NotFound(Funciones.Constantes.NOT_FOUND);
@@ -43,6 +46,7 @@ namespace Backend.Controllers
         }
 
         // GET: api/<HogarController> - consulta los hogares publicados (marcados como publicado en la base de datos.
+        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -63,6 +67,7 @@ namespace Backend.Controllers
         }
 
         // GET api/<HogarController>/5
+        //[Authorize]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -84,6 +89,7 @@ namespace Backend.Controllers
             }
         }
 
+        //[Authorize]
         [HttpGet("{clienteId}")]
         public IActionResult GetFromCliente(int clienteId)
         {
@@ -107,6 +113,7 @@ namespace Backend.Controllers
         }
 
         // POST api/<HogarController>
+        //[Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] Hogar hogar)
         {
@@ -126,6 +133,7 @@ namespace Backend.Controllers
         }
 
         // PUT api/<ClienteController>/5
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Update([FromBody] Hogar mascota, [FromRoute] int id)
         {
@@ -145,6 +153,7 @@ namespace Backend.Controllers
         }
 
         // PUT api/<ClienteController>/5
+        //[Authorize]
         [HttpPut("{id}")]
         public IActionResult Enable(int id)
         {
@@ -164,6 +173,7 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<ClienteController>/5
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Disable(int id)
         {
@@ -182,6 +192,7 @@ namespace Backend.Controllers
         }
 
         // DELETE api/<ClienteController>/5
+        //[Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

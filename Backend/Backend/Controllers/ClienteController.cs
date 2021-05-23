@@ -1,5 +1,6 @@
 ﻿using Backend.Classes.Core;
 using Backend.Models;
+using Backend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -73,11 +74,11 @@ namespace Backend.Controllers
 
                 ClienteCore clienteCore = new ClienteCore(dbContext);
 
-                IQueryable<Cliente> clienteFound = clienteCore.GetFromId(id);
-                if (clienteFound.ToList().Count == 0)
+                ClienteVM response = clienteCore.GetFromId(id);
+                if (response == null)
                     return NotFound(Funciones.Constantes.NOT_FOUND);
 
-                return Ok(clienteFound);
+                return Ok(response);
             }
             catch(Exception ex)
             {
@@ -105,6 +106,16 @@ namespace Backend.Controllers
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
+        }
+
+        //GET
+        // Todas las mascotas de un cliente en específico
+        [HttpGet("{id}")]
+        public IActionResult GetMascotas([FromRoute] int id)
+        {
+            ClienteCore clienteCore = new ClienteCore(dbContext);
+            ClienteViewModel response = clienteCore.GetMascotas(id);
+            return Ok(response);
         }
 
         // POST api/<ClienteController>

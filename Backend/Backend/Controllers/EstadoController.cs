@@ -1,5 +1,6 @@
 ﻿using Backend.Classes.Core;
 using Backend.Models;
+using Backend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -29,7 +30,7 @@ namespace Backend.Controllers
             try
             {
                 EstadoCore estadoCore = new EstadoCore(dbContext);
-                List<Estado> estados = estadoCore.GetAll();
+                List<EstadoVM> estados = estadoCore.GetAll();
                 if (!Funciones.Validadores.validaLista(estados))
                     return NotFound(Funciones.Constantes.NOT_FOUND);
                 return Ok(estados);
@@ -58,6 +59,28 @@ namespace Backend.Controllers
                 return Ok(estado);
             }
             catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        //GET ciudades de un estado
+        [HttpGet("{id}")]
+        public IActionResult GetCiudades(int id)
+        {
+            try
+            {
+                if (!Funciones.Validadores.validaId(id))
+                    return BadRequest(Funciones.Constantes.BAD_REQUEST);
+
+                EstadoCore estadoCore = new EstadoCore(dbContext);
+                EstadoViewModel response = estadoCore.GetCiudades(id);
+                //if (!Funciones.Validadores.validaObjeto(estado))
+                //    return NotFound(Funciones.Constantes.NOT_FOUND);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }

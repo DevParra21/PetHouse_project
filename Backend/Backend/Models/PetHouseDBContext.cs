@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Models
 {
-    public class PetHouseDBContext : DbContext
+    public class PetHouseDBContext : IdentityDbContext<User>
     {
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<CategoriaMascota> CategoriaMascota { get; set; }
@@ -78,7 +80,8 @@ namespace Backend.Models
 
             modelBuilder.Entity<Ciudad>(entity =>
             {
-                entity.HasKey(e => e.ID);
+                entity.ToTable("Ciudad");
+                entity.HasKey(e => e.Id);
 
 
                 entity.Property(e => e.Nombre)
@@ -93,6 +96,7 @@ namespace Backend.Models
                 .WithMany()
                 .IsRequired(true)
                 .HasConstraintName("FK_Ciudad_Estado");
+
             });
             
             modelBuilder.Entity<Cliente>(entity =>
@@ -471,6 +475,108 @@ namespace Backend.Models
                 entity.HasOne(e => e.Mascota)
                 .WithMany()
                 .HasConstraintName("FK_RDetalle_Mascota");
+            });
+
+            modelBuilder.Entity<User>(user =>
+            {
+                user.ToTable("AspNetUsers");
+                user.HasKey(e => e.Id);
+
+                //Agregar campos de cliente aquí
+                //user.ToTable("AspNetUsers");
+                user.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(25)
+                .IsUnicode(false);
+
+
+                user.Property(e => e.PLastName)
+                .IsRequired()
+                .HasMaxLength(25)
+                .IsUnicode(false);
+
+                user.Property(e => e.MLastName)
+                .IsRequired()
+                .HasMaxLength(25)
+                .IsUnicode(false);
+
+                user.Property(e => e.BirthDate)
+                .IsRequired()
+                .HasColumnType("date");
+
+                user.Property(e => e.Street)
+                .IsRequired()
+                .HasMaxLength(25)
+                .IsUnicode(false);
+
+                user.Property(e => e.NoExt)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsUnicode(false);
+
+                user.Property(e => e.NoInt)
+                .IsRequired(false)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+
+                user.Property(e => e.PostalCode)
+                .IsRequired()
+                .HasMaxLength(5)
+                .IsUnicode(false);
+
+                user.Property(e => e.DateAdded)
+                .IsRequired(false)
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("getdate()");
+
+                user.Property(e => e.Blocked)
+                .IsRequired(false)
+                .HasColumnType("bit")
+                .HasDefaultValueSql("0");
+
+                user.Property(e => e.CiudadId)
+                .IsRequired();
+
+                user.HasOne(e => e.Ciudad)
+                .WithMany()
+                .HasConstraintName("FK_AspNetUser_City_CityId");
+
+            });
+
+            modelBuilder.Entity<IdentityRole<string>>(entity =>
+            {
+                entity.ToTable("AspNetRoles");
+                entity.HasKey(e => e.Id);
+            });
+
+            modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
+            {
+                entity.ToTable("AspNetUserLogins");
+                entity.HasKey("LoginProvider", "ProviderKey");
+            });
+
+            modelBuilder.Entity<IdentityRoleClaim<string>>(entity =>
+            {
+                entity.ToTable("AspNetRoleClaims");
+                entity.HasKey(e => e.Id);
+            });
+
+            modelBuilder.Entity<IdentityUserRole<string>>(entity =>
+            {
+                entity.ToTable("AspNetUserRoles");
+                entity.HasKey("UserId", "RoleId");
+            });
+
+            modelBuilder.Entity<IdentityUserToken<string>>(entity =>
+            {
+                entity.ToTable("AspNetUserTokens");
+                entity.HasKey("UserId", "LoginProvider");
+            });
+
+            modelBuilder.Entity<IdentityUserClaim<string>>(entity =>
+            {
+                entity.ToTable("AspNetUserClaims");
+                entity.HasKey(e => e.Id);
             });
 
 

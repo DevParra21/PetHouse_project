@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Backend.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -70,17 +71,62 @@ namespace Backend.Classes.Core
 
         }
 
-        public IQueryable<Cliente> GetFromId(int idParam)
+        public ClienteVM GetFromId(int idParam)
         {
             try
             {
-                IQueryable<Cliente> clienteFromId = dbContext.Cliente
-                .Include(x => x.Ciudad)
-                .Include(y => y.Ciudad.Estado)
-                .Include(z => z.Ciudad.Estado.Pais)
-                .Where(cliente => cliente.ID == idParam);
+                var query = (from Cliente in dbContext.Cliente
+                             join Ciudad in dbContext.Ciudad on Cliente.CiudadId equals Ciudad.Id
+                             join Estado in dbContext.Estado on Ciudad.EstadoId equals Estado.ID
+                             where Cliente.ID == idParam
+                             select new
+                             {
+                                 id = Cliente.ID,
+                                 nombre = Cliente.Nombre,
+                                 apellidoPaterno = Cliente.ApellidoPaterno,
+                                 apellidoMaterno = Cliente.ApellidoMaterno,
+                                 correoElectronico = Cliente.CorreoElectronico,
+                                 estadoId = Ciudad.EstadoId,
+                                 estado = Estado.Nombre,
+                                 ciudadId = Cliente.CiudadId,
+                                 ciudad = Ciudad.Nombre,
+                                 calle = Cliente.Calle,
+                                 noExterior = Cliente.NumExt,
+                                 noInterior = Cliente.NumInt,
+                                 codigoPostal = Cliente.CodigoPostal,
+                                 telefono = Cliente.NumeroTelefonico,
+                                 celular = Cliente.NumeroCelular,
+                                 bloqueado = Cliente.Bloqueado
+                                }).First();
 
-                return clienteFromId;
+                ClienteVM restructure = new ClienteVM()
+                {
+                    id = query.id,
+                    nombre = query.nombre,
+                    apellidoPaterno = query.apellidoPaterno,
+                    apellidoMaterno = query.apellidoMaterno,
+                    correoElectronico = query.correoElectronico,
+                    estadoId = query.estadoId,
+                    estadoNombre = query.estado,
+                    ciudadId = query.ciudadId,
+                    ciudadNombre = query.ciudad,
+                    calle = query.calle,
+                    noExterior = query.noExterior,
+                    noInterior = query.noInterior,
+                    codigoPostal = query.codigoPostal,
+                    telefono=query.telefono,
+                    celular = query.celular,
+                    bloqueado = query.bloqueado
+
+                };
+
+                //IQueryable<Cliente> clienteFromId = dbContext.Cliente
+                //.Include(x => x.Ciudad)
+                //.Include(y => y.Ciudad.Estado)
+                //.Include(z => z.Ciudad.Estado.Pais)
+                //.Where(cliente => cliente.ID == idParam);
+
+                return restructure;
             }
             catch(Exception ex)
             {
@@ -198,6 +244,44 @@ namespace Backend.Classes.Core
 
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ClienteViewModel GetMascotas(int id)
+        {
+            try
+            {
+                //Consultar
+                var query = (from Cliente in dbContext.Cliente
+                            join Mascota in dbContext.Mascota on Cliente.ID equals Mascota.Cliente.ID
+                            where Cliente.ID == id
+                            select new
+                            {
+                                Id = Cliente.ID,
+                                NombreCompleto = $"{Cliente.Nombre} {Cliente.ApellidoPaterno} {Cliente.ApellidoMaterno}",
+                                NombreMascota = Mascota.Nombre,
+                                TipoMascota = Mascota.TipoMascota.Nombre,
+                                TamanoMascota = Mascota.CategoriaMascota.Nombre
+                            }).ToList();
+
+                //Estructurar
+                ClienteViewModel restructure = query.GroupBy(x => (x.Id, x.NombreCompleto)).Select(y => new ClienteViewModel
+                {
+                    nombreCompleto = y.Key.NombreCompleto,
+                    mascotas = y.Select(z => new MascotaViewModel
+                    {
+                        nombre = z.NombreMascota,
+                        tamano = z.TamanoMascota,
+                        tipo = z.TipoMascota
+                    }).ToList()
+                }).First();
+
+
+                return restructure;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

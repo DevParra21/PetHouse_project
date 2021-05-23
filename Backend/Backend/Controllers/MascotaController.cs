@@ -1,5 +1,6 @@
 ﻿using Backend.Classes.Core;
 using Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Backend.Controllers
             this.dbContext = dbContext;
         }
         // GET: api/<MascotaController>
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -42,6 +44,7 @@ namespace Backend.Controllers
         }
 
         // GET api/<MascotaController>/5
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -59,6 +62,7 @@ namespace Backend.Controllers
         }
 
         // GET api/<MascotaController>/cliente
+        [Authorize]
         [HttpGet("{clienteId}")]
         public IActionResult GetFromCliente(int clienteId)
         {
@@ -83,6 +87,7 @@ namespace Backend.Controllers
         }
 
         // POST api/<MascotaController>
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] Mascota mascotaParam)
         {
@@ -99,6 +104,7 @@ namespace Backend.Controllers
         }
 
         // PUT api/<ClienteController>/5
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] Mascota mascota, [FromRoute] int id)
         {
