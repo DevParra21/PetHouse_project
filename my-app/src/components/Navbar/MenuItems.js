@@ -10,6 +10,11 @@ export const MenuItems=[
         cName:'nav-links'
     },
     {
+        title:'Registra a tu mascota',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
         title:'Regístrate',
         url:'#',
         cName:'nav-links-mobile'

@@ -44,9 +44,10 @@
 }
 
 .nav-links:hover{
-    background-color: rgb(90, 104, 233);
+    background-color: rgb(233, 147, 90);
     border-radius: 4px;
     transition: all 0.2s ease-out;
+    text-decoration: none !important;
 }
 
 .fa-bars{

@@ -3,6 +3,29 @@ import './Reservation.css';
 
 
 const Reservation = () => {
+    
+    
+    var aPagar='0';
+    var fechaInicial=null;
+    var fechaFinal=null;
+    const monto=199.99;
+
+
+    const onChangeHandler = e =>{
+        if(e.target.name === 'fechaInicial')
+            fechaInicial = new Date(e.target.value);
+        else
+            fechaFinal = new Date(e.target.value);
+        
+        if(fechaInicial!=null && fechaFinal!=null)
+        {
+            let diff = Math.abs(fechaFinal - fechaInicial);
+            
+            this.setState((diff/(1000*60*60*24)) *monto)
+        }
+    }
+        
+
     return (  
         <div className="container">
             <section className="hero is-medium is-bold">
@@ -32,30 +55,40 @@ const Reservation = () => {
                             <div className="column">
                                 <div className="field">
                                     <label className="label">Fecha de entrada</label>
-                                    <input className="input" type="date" />
+                                    <input className="input" type="date" name="fechaInicial" onChange={onChangeHandler} />
                                     <small className="help is-danger">La fecha no puede ser  menor que la fecha actual</small>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="field">
                                     <label className="label">Fecha de salida</label>
-                                    <input className="input" type="date" />
+                                    <input className="input" type="date" name="fechaFinal" onChange={onChangeHandler} />
                                     <small className="help is-danger">La fecha no puede ser  menor que la fecha de entrada</small>
                                 </div>
                             </div>
                         </div>
-                        <div className="field">
-                          <label className="label">Cantidad a pagar</label>
-                          <p className="control">
-                            <input className="input is-warning" type="number" placeholder="$" disabled/>
-                          </p>
+                        <div className="columns">
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Costo por noche</label>
+                                    <p className="control">
+                                        <span> $ {monto}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Cantidad a pagar</label>
+                                    <p className="control">
+                                        <span>$ {aPagar}</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        
-                        
                         <div className="field">
                           <label className="label">Comentarios</label>
                           <p className="control">
-                            <textarea className="textarea" placeholder="Textarea"></textarea>
+                            <textarea className="textarea" placeholder="Agrega comentarios sobre tu mascota (Si dejarás comida, si necesita cuidados especiales, etcétera)."></textarea>
                           </p>
                         </div>
                         
@@ -76,5 +109,5 @@ const Reservation = () => {
         </div>
     );
 }
- 
+
 export default Reservation;
