@@ -10,11 +10,6 @@ export const MenuItems=[
         cName:'nav-links'
     },
     {
-        title:'Inicia sesión',
-        url:'#',
-        cName:'nav-links'
-    },
-    {
         title:'Regístrate',
         url:'#',
         cName:'nav-links-mobile'

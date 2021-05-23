@@ -11,7 +11,7 @@ const SIZE=[
     'btn--large'
 ]
 
-export const Button = ({
+export const ButtonLanding = ({
     children,
     type,
     onClick,

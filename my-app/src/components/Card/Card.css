@@ -11,12 +11,9 @@ small{
     font-size: 10px;
 }
 
-button{
+.cardBtn{
     display: block;
     flex: 1;
-    align-items: stretch;
-}
-
-Link{
-    text-decoration: none;
+    bottom: 0;
+    transform: translateY(10%);
 }

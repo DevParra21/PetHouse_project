@@ -1,4 +1,5 @@
 import React ,{ Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import  CarouselDetail  from '../Carousel';
 import './Homedetail.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,7 @@ const Maindetail = () => {
                     <div className="col">
                         <div className="float-right">
                             <span className="money">$ 999.99 MXN</span>
-                            <a className="button is-primary">Reservar</a>
+                           <Link to="/reservation" style={{textDecoration:'none'}}> <a className="button is-primary">Reservar</a> </Link>
                         </div>
                     </div>
                 </div>

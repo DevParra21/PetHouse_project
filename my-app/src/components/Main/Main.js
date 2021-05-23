@@ -1,47 +1,56 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import  Card  from 'components/Card/Card';
 import  Searchbar from 'components/Searchbar';
 import './Main.css';
-
+import { getAll } from '../../api/HogarAPI';
 
 const Main = () => {
 
-    //useState
-  const [ productos, guardarProductos ] = useState([
-    {id: 1, nombre: 'Camisa', precio:50 },
-    {id: 2, nombre: 'Camisa2', precio:50 },
-  ]);
 
-  const[hogares, guardarHogar] = useState([
-    { id: 1, 
-      nombre: 'Ave. 2 John K.', 
-      cliente:'Alma Patricia', 
-      descripcion:'Esta es un hogar para mascotas',
-      mascotas:'3',
-      precio:'129.99'
-    },
-    { id: 2, 
-      nombre: 'Ave. 2 John K.', 
-      cliente:'Alma Patricia', 
-      descripcion:'Esta es un hogar para mascotas',
-      mascotas:'2',
-      precio:'129.99'
-    },
-    { id: 3, 
-      nombre: 'Ave. 2 John K.', 
-      cliente:'Alma Patricia', 
-      descripcion:'Esta es otro hogar para mascotas',
-      mascotas:'1',
-      precio:'129.99'
-    },
-    { id: 4, 
-      nombre: 'Ave. 2 John K.', 
-      cliente:'Alma Patricia', 
-      descripcion:'Esta es otro hogar para mascotas',
-      mascotas:'1',
-      precio:'129.99'
-    },
-  ]);
+    useEffect(() =>{
+      async function fetchData(){
+          const response = await getAll();
+          setHogares(response);
+      }
+
+      fetchData();
+  }, []);
+
+  //useState
+  const [hogares, setHogares] = useState([]);
+
+  
+
+  // const[hogares, guardarHogar] = useState([
+  //   { id: 1, 
+  //     nombre: 'Ave. 2 John K.', 
+  //     cliente:'Alma Patricia', 
+  //     descripcion:'Esta es un hogar para mascotas',
+  //     mascotas:'3',
+  //     precio:'129.99'
+  //   },
+  //   { id: 2, 
+  //     nombre: 'Ave. 2 John K.', 
+  //     cliente:'Alma Patricia', 
+  //     descripcion:'Esta es un hogar para mascotas',
+  //     mascotas:'2',
+  //     precio:'129.99'
+  //   },
+  //   { id: 3, 
+  //     nombre: 'Ave. 2 John K.', 
+  //     cliente:'Alma Patricia', 
+  //     descripcion:'Esta es otro hogar para mascotas',
+  //     mascotas:'1',
+  //     precio:'129.99'
+  //   },
+  //   { id: 4, 
+  //     nombre: 'Ave. 2 John K.', 
+  //     cliente:'Alma Patricia', 
+  //     descripcion:'Esta es otro hogar para mascotas',
+  //     mascotas:'1',
+  //     precio:'129.99'
+  //   },
+  // ]);
 
     return (
         <div className="container">
@@ -55,7 +64,7 @@ const Main = () => {
         <Searchbar />
 
         <h3>Nuevos Hogares para tu mascota</h3>
-        <div className="columns">
+        <div className="row">
           {hogares.map(hogar =>(
             <Card
             key={hogar.id}
@@ -63,7 +72,7 @@ const Main = () => {
             ))}
         </div>
         <h3>Hogares Destacados</h3>
-        <div className="columns">
+        <div className="row">
           {hogares.map(hogar =>(
             <Card
             key={hogar.id}
