@@ -5,6 +5,10 @@ C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Releas
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Backend.runtimeconfig.json
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Backend.pdb
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Humanizer.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.CodeAnalysis.dll
@@ -22,6 +26,8 @@ C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Releas
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
+C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.Identity.Client.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\DSKTP-Patricio\Documents\LMAD\PAPW2\Proyecto\Backend\Backend\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
