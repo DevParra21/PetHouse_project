@@ -16,7 +16,7 @@ export const MenuItems=[
     },
     {
         title:'Regístrate',
-        url:'#',
+        url:'pethouse/signup',
         cName:'nav-links-mobile'
     },
 ]
