@@ -30,7 +30,7 @@ const Navbar = () => {
                 {MenuItems.map((item, index)=>{
                     return (
                         <li key={index}>
-                            <Link to={item.url} style={{textDecoration: 'none', color: '#FF9500'}} ><span className={item.cName}>{item.title}</span></Link>
+                            <a className={item.cName} href={item.url}>{item.title}</a>
                         </li>
                     );
                 })}
